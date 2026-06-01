@@ -20,7 +20,7 @@ npm run dev
 
 Откройте http://localhost:5173
 
-Swagger UI: http://localhost:8080/swagger-ui.html
+Swagger UI: http://localhost:8081/swagger-ui.html
 
 **Учётные записи:** при первом запуске backend создаются служебные пользователи `admin`, `client`, `employee` (см. `DevDataInitializer`). Пароли не отображаются в интерфейсе и не хранятся в открытом виде в репозитории.
 
