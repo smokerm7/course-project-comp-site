@@ -16,7 +16,7 @@ npm run dev
 ```
 
 Важно: запускайте именно **`npm run dev`** (порт 5173), не `preview` и не файл `index.html` из папки.  
-Если каталог пишет 404 — сначала проверьте backend: http://localhost:8080/api/health должно вернуть `{"status":"ok",...}`.
+Если каталог пишет 404 — сначала проверьте backend: http://localhost:8081/api/health должно вернуть `{"status":"ok",...}`.
 
 Откройте http://localhost:5173
 
