@@ -1,0 +1,78 @@
+Table users {
+  id bigint [pk, increment]
+  username varchar [unique, not null]
+  email varchar [unique, not null]
+  password_hash varchar [not null]
+  role varchar [not null]
+  created_at timestamp
+}
+Table clients {
+  id bigint [pk, increment]
+  user_id bigint [unique, not null]
+  full_name varchar [not null]
+  phone varchar [not null]
+  address varchar
+}
+Table employees {
+  id bigint [pk, increment]
+  user_id bigint [unique, not null]
+  full_name varchar [not null]
+  position varchar [not null]
+  phone varchar
+}
+Table categories {
+  id bigint [pk, increment]
+  name varchar [unique, not null]
+  description text
+}
+Table products {
+  id bigint [pk, increment]
+  category_id bigint [not null]
+  name varchar [not null]
+  description text
+  manufacturer varchar
+  price decimal [not null]
+  stock_quantity int [not null]
+  image_url varchar
+}
+Table statuses {
+  id bigint [pk, increment]
+  name varchar [not null]
+  type varchar [not null]
+  description text
+}
+Table orders {
+  id bigint [pk, increment]
+  client_id bigint [not null]
+  status_id bigint [not null]
+  total_amount decimal [not null]
+  created_at timestamp
+}
+Table order_items {
+  id bigint [pk, increment]
+  order_id bigint [not null]
+  product_id bigint [not null]
+  quantity int [not null]
+  price decimal [not null]
+}
+Table repair_requests {
+  id bigint [pk, increment]
+  client_id bigint [not null]
+  employee_id bigint
+  status_id bigint [not null]
+  device_type varchar [not null]
+  device_model varchar [not null]
+  problem_description text [not null]
+  master_comment text
+  created_at timestamp
+}
+Ref: clients.user_id > users.id
+Ref: employees.user_id > users.id
+Ref: products.category_id > categories.id
+Ref: orders.client_id > clients.id
+Ref: orders.status_id > statuses.id
+Ref: order_items.order_id > orders.id
+Ref: order_items.product_id > products.id
+Ref: repair_requests.client_id > clients.id
+Ref: repair_requests.employee_id > employees.id
+Ref: repair_requests.status_id > statuses.id

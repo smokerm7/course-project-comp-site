@@ -1,0 +1,20 @@
+sequenceDiagram
+    actor Client as Клиент
+    participant UI as React Frontend
+    participant RepairController as RepairController
+    participant RepairService as RepairService
+    participant StatusRepo as StatusRepository
+    participant RepairRepo as RepairRequestRepository
+    participant DB as Database
+    Client->>UI: Заполняет форму ремонта
+    UI->>RepairController: POST /api/repairs
+    RepairController->>RepairService: createRepairRequest(request, user)
+    RepairService->>StatusRepo: Найти начальный статус REPAIR
+    StatusRepo->>DB: SELECT statuses
+    DB-->>StatusRepo: Статус Принята
+    RepairService->>RepairRepo: Сохранить заявку
+    RepairRepo->>DB: INSERT repair_requests
+    DB-->>RepairRepo: Заявка создана
+    RepairService-->>RepairController: RepairRequestDto
+    RepairController-->>UI: 201 Created
+    UI-->>Client: Заявка отправлена

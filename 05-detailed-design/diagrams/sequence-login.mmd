@@ -1,0 +1,20 @@
+sequenceDiagram
+    actor User as Пользователь
+    participant UI as React Frontend
+    participant AuthController as AuthController
+    participant AuthService as AuthService
+    participant UserRepo as UserRepository
+    participant JwtService as JwtService
+    participant DB as Database
+    User->>UI: Вводит логин и пароль
+    UI->>AuthController: POST /api/auth/login
+    AuthController->>AuthService: login(request)
+    AuthService->>UserRepo: findByUsername(username)
+    UserRepo->>DB: SELECT users
+    DB-->>UserRepo: User
+    AuthService->>AuthService: Проверка BCrypt
+    AuthService->>JwtService: generateToken(user)
+    JwtService-->>AuthService: JWT
+    AuthService-->>AuthController: AuthResponse
+    AuthController-->>UI: token + role
+    UI-->>User: Открывает личный кабинет

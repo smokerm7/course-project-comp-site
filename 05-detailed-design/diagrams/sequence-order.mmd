@@ -1,0 +1,21 @@
+sequenceDiagram
+    actor Client as Клиент
+    participant UI as React Frontend
+    participant OrderController as OrderController
+    participant OrderService as OrderService
+    participant ProductRepo as ProductRepository
+    participant OrderRepo as OrderRepository
+    participant DB as Database
+    Client->>UI: Добавляет товар в корзину
+    Client->>UI: Нажимает Оформить заказ
+    UI->>OrderController: POST /api/orders
+    OrderController->>OrderService: createOrder(request, user)
+    OrderService->>ProductRepo: Проверить остатки товаров
+    ProductRepo->>DB: SELECT products
+    DB-->>ProductRepo: Данные товаров
+    OrderService->>OrderRepo: Сохранить заказ и позиции
+    OrderRepo->>DB: INSERT orders, order_items
+    DB-->>OrderRepo: Заказ создан
+    OrderService-->>OrderController: OrderDto
+    OrderController-->>UI: 201 Created
+    UI-->>Client: Заказ успешно оформлен

@@ -1,0 +1,68 @@
+@startuml
+class User {
+  Long id
+  String username
+  String email
+  String passwordHash
+  Role role
+}
+class Client {
+  Long id
+  String fullName
+  String phone
+  String address
+}
+class Employee {
+  Long id
+  String fullName
+  String position
+  String phone
+}
+class Category {
+  Long id
+  String name
+  String description
+}
+class Product {
+  Long id
+  String name
+  String description
+  String manufacturer
+  BigDecimal price
+  Integer stockQuantity
+  String imageUrl
+}
+class Order {
+  Long id
+  BigDecimal totalAmount
+  LocalDateTime createdAt
+}
+class OrderItem {
+  Long id
+  Integer quantity
+  BigDecimal price
+}
+class RepairRequest {
+  Long id
+  String deviceType
+  String deviceModel
+  String problemDescription
+  String masterComment
+  LocalDateTime createdAt
+}
+class Status {
+  Long id
+  String name
+  String type
+}
+User "1" -- "1" Client
+User "1" -- "1" Employee
+Category "1" -- "*" Product
+Client "1" -- "*" Order
+Order "1" -- "*" OrderItem
+Product "1" -- "*" OrderItem
+Client "1" -- "*" RepairRequest
+Employee "1" -- "*" RepairRequest
+Status "1" -- "*" Order
+Status "1" -- "*" RepairRequest
+@enduml

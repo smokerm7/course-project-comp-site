@@ -1,0 +1,351 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+}
+
+.hero {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  min-height: 480px;
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--card-border);
+}
+
+.heroBg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    rgba(7, 11, 20, 0.92) 0%,
+    rgba(7, 11, 20, 0.75) 45%,
+    rgba(7, 11, 20, 0.35) 100%
+  );
+}
+
+.heroContent {
+  position: relative;
+  z-index: 1;
+  padding: 48px 56px;
+  max-width: 680px;
+}
+
+.heroTag {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(6, 182, 212, 0.15);
+  border: 1px solid rgba(6, 182, 212, 0.35);
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.heroTitle {
+  margin: 0 0 16px;
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.heroSubtitle {
+  margin: 0 0 32px;
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.heroActions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 28px;
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+}
+
+.btnPrimary {
+  composes: btn;
+  background: linear-gradient(135deg, var(--primary), #1d4ed8);
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(59, 130, 246, 0.4);
+}
+
+.btnPrimary:hover {
+  box-shadow: 0 12px 32px rgba(59, 130, 246, 0.5);
+}
+
+.btnSecondary {
+  composes: btn;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+}
+
+.btnSecondary:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.sectionTitle {
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.sectionSubtitle {
+  margin: 6px 0 0;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.linkMore {
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: color var(--transition);
+}
+
+.linkMore:hover {
+  color: var(--primary);
+}
+
+.categoryGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.categoryCard {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+  min-height: 220px;
+}
+
+.categoryCard:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: var(--shadow);
+  border-color: rgba(59, 130, 246, 0.35);
+}
+
+.heroBg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.categoryImageWrap {
+  width: 100%;
+  height: 120px;
+  transition: transform var(--transition);
+}
+
+.categoryCard:hover .categoryImageWrap {
+  transform: scale(1.08);
+}
+
+.categoryBody {
+  padding: 16px;
+}
+
+.categoryTitle {
+  margin: 0 0 6px;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.categoryDesc {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+}
+
+.productGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.advantageGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.advantageCard {
+  padding: 28px 24px;
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  transition: transform var(--transition), border-color var(--transition);
+}
+
+.advantageCard:hover {
+  transform: translateY(-6px);
+  border-color: rgba(6, 182, 212, 0.35);
+}
+
+.advantageIcon {
+  font-size: 2rem;
+  margin-bottom: 14px;
+}
+
+.advantageTitle {
+  margin: 0 0 8px;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.advantageDesc {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.loading {
+  color: var(--text-muted);
+  text-align: center;
+  padding: 40px;
+}
+
+.empty {
+  text-align: center;
+  padding: 48px 24px;
+  color: var(--text-muted);
+  background: var(--card);
+  border: 1px dashed var(--card-border);
+  border-radius: var(--radius);
+}
+
+.skeletonGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.skeletonCard {
+  aspect-ratio: 3 / 4;
+  border-radius: var(--radius);
+  background: linear-gradient(
+    90deg,
+    var(--card) 0%,
+    var(--surface-hover) 50%,
+    var(--card) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.4s ease infinite;
+  border: 1px solid var(--card-border);
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@media (max-width: 1200px) {
+  .categoryGrid,
+  .productGrid,
+  .skeletonGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .advantageGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 1024px) {
+  .heroContent {
+    padding: 40px;
+  }
+
+  .categoryGrid,
+  .productGrid,
+  .skeletonGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .home {
+    gap: 48px;
+  }
+
+  .hero {
+    min-height: 420px;
+  }
+
+  .heroContent {
+    padding: 32px 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .categoryGrid,
+  .productGrid,
+  .advantageGrid,
+  .skeletonGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .heroActions {
+    flex-direction: column;
+  }
+
+  .btnPrimary,
+  .btnSecondary {
+    width: 100%;
+  }
+}

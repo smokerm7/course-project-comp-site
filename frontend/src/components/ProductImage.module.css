@@ -1,0 +1,45 @@
+.wrap {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(145deg, #0f172a 0%, #1e293b 50%, #0c1220 100%);
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--transition, 0.25s ease);
+}
+
+.hidden {
+  opacity: 0;
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(145deg, #0f172a 0%, #1e293b 50%, #0c1220 100%);
+}
+
+.placeholderIcon {
+  font-size: 2.5rem;
+  opacity: 0.35;
+  user-select: none;
+}
+
+.cover {
+  width: 100%;
+  height: 100%;
+}
+
+.fill {
+  width: 100%;
+  height: auto;
+}

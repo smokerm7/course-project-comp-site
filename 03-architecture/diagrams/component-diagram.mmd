@@ -1,0 +1,12 @@
+flowchart LR
+    Browser[Браузер клиента]
+    Frontend[React Frontend]
+    Backend[Spring Boot Backend]
+    Security[JWT Security]
+    Swagger[Swagger UI]
+    DB[(Database)]
+    Browser --> Frontend
+    Frontend --> Backend
+    Backend --> Security
+    Backend --> Swagger
+    Backend --> DB

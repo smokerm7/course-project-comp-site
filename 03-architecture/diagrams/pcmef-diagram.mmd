@@ -1,0 +1,12 @@
+flowchart TB
+    P[Presentation<br/>React + TypeScript]
+    C[Control<br/>Spring REST Controllers]
+    M[Mediator<br/>Service Layer]
+    E[Entity<br/>JPA Entities]
+    F[Foundation<br/>Repositories]
+    DB[(PostgreSQL / H2 Database)]
+    P -->|HTTP REST / JSON| C
+    C --> M
+    M --> F
+    F --> E
+    F --> DB
